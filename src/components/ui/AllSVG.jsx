@@ -55,6 +55,30 @@ export function CloseIcon({ className = 'size-6' }) {
   )
 }
 
+export function ChevronLeftIcon({ className = 'size-5' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="m15 6-6 6 6 6" />
+    </svg>
+  )
+}
+
+export function ChevronRightIcon({ className = 'size-5' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
+    </svg>
+  )
+}
+
+export function CheckIcon({ className = 'size-3' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="m5 12 5 5L20 7" />
+    </svg>
+  )
+}
+
 export function ChevronDownIcon({ className = 'size-3.5' }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">

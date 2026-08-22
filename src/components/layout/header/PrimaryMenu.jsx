@@ -14,7 +14,7 @@ import { ChevronDownIcon } from '../../ui/AllSVG'
 const menuLinkClass = ({ isActive }) =>
   [
     'relative inline-block whitespace-nowrap px-2 text-[14px] font-semibold uppercase leading-none tracking-wide transition-colors duration-300 xl:px-2.5 xl:text-[15px]',
-    'before:absolute before:top-[-14px] before:left-1/2 before:h-1 before:w-5 before:-translate-x-1/2 before:bg-secondary before:opacity-0 before:transition-all before:duration-500',
+    'before:absolute before:-top-2 before:left-1/2 before:h-0.5 before:w-5 before:-translate-x-1/2 before:bg-secondary before:opacity-0 before:transition-all before:duration-500',
     isActive ? 'text-secondary before:opacity-100' : 'text-[#242424] hover:text-secondary hover:before:opacity-100',
   ].join(' ')
 

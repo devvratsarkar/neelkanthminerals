@@ -32,7 +32,7 @@ export default function PrimaryHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="relative z-50 bg-white">
+    <>
       <div className="hidden bg-primary py-2.5 sm:block md:py-3.75 md:pb-2.5">
         <div className="custom_container flex flex-col items-center justify-between gap-3 xl:flex-row">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 xl:justify-start">
@@ -70,9 +70,9 @@ export default function PrimaryHeader() {
         </div>
       </div>
 
-      <div className="sticky top-0 z-50 bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)]">
-        <div className="custom_container flex items-center justify-between gap-4">
-          <Link to={getHomePageRoute()} className="flex shrink-0 items-center gap-3 py-3 lg:py-4">
+      <header className="sticky top-0 z-50 bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)]">
+        <div className="custom_container flex items-center justify-between gap-4 py-3">
+          <Link to={getHomePageRoute()} className="flex shrink-0 items-center gap-3">
             <SiteLogoMark className="h-11 w-auto sm:h-12" />
             <span className="leading-none">
               <span className="block text-[22px] font-semibold text-primary sm:text-[26px]">
@@ -85,7 +85,7 @@ export default function PrimaryHeader() {
           </Link>
 
           <div className="hidden min-w-0 items-center lg:flex">
-            <nav className="py-9">
+            <nav>
               <PrimaryMenu />
             </nav>
             <div className="ml-4 flex items-center gap-1.5 xl:ml-6 xl:gap-2">
@@ -112,13 +112,13 @@ export default function PrimaryHeader() {
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
-      </div>
 
-      {mobileOpen ? (
-        <div className="bg-primary lg:hidden">
-          <PrimaryMenu variant="mobile" onNavigate={() => setMobileOpen(false)} />
-        </div>
-      ) : null}
-    </header>
+        {mobileOpen ? (
+          <div className="bg-primary lg:hidden">
+            <PrimaryMenu variant="mobile" onNavigate={() => setMobileOpen(false)} />
+          </div>
+        ) : null}
+      </header>
+    </>
   )
 }

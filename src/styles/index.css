@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./common.css";
+@import "./slider.css";
 
 @theme {
   --color-primary: #092261;
