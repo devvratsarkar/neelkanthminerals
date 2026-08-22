@@ -27,7 +27,7 @@ export default function ProductDetailPage() {
           <img
             src={product.image}
             alt={product.label}
-            className="aspect-[4/3] w-full object-cover"
+            className="aspect-4/3 w-full object-cover"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function ProductDetailPage() {
                 to={getProductDetailRoute(item.slug)}
                 className="block border border-black/10 bg-white p-4 transition-colors hover:border-secondary"
               >
-                <img src={item.image} alt={item.label} className="mb-3 aspect-[4/3] w-full object-cover" />
+                <img src={item.image} alt={item.label} className="mb-3 aspect-4/3 w-full object-cover" />
                 <p className="font-semibold text-primary">{item.label}</p>
               </Link>
             </li>

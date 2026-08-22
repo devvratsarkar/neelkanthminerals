@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
         <img
           src={product.image}
           alt={product.label}
-          className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="aspect-4/3 w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       <div className="p-5">
