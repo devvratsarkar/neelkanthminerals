@@ -10,7 +10,7 @@ const facts = [
 
 export default function WelcomeSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f6f3ee] py-24 lg:py-32">
+    <section className="home-section relative overflow-hidden bg-[#f6f3ee]">
       <div className="pointer-events-none absolute top-16 right-[8%] hidden text-[9rem] leading-none font-semibold text-primary/4 select-none lg:block">
         {site.established}
       </div>

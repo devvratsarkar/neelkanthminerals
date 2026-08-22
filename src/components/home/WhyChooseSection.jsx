@@ -8,7 +8,7 @@ const years = new Date().getFullYear() - site.established
 export default function WhyChooseSection() {
   return (
     <section>
-      <div className="bg-primary py-16 lg:py-20">
+      <div className="home-section-tight bg-primary">
         <div className="custom_container max-w-3xl text-center">
           <h2 className="text-2xl font-semibold tracking-wide text-white uppercase sm:text-3xl lg:text-4xl lg:leading-tight">
             {years}+ years of experience for better results
@@ -28,7 +28,7 @@ export default function WhyChooseSection() {
 
       <div className="relative overflow-hidden bg-[#f6f3ee]">
         <div className="grid lg:grid-cols-2">
-          <div className="flex items-center px-4 py-16 sm:px-6 lg:py-24 lg:pr-12 lg:pl-[max(1.5rem,7.5vw)]">
+          <div className="home-section flex items-center px-4 sm:px-6 lg:pr-12 lg:pl-[7.5%]">
             <div className="max-w-lg">
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-px w-10 bg-secondary" />

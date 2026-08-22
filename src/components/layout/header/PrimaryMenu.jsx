@@ -1,15 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import { products } from '../../../data/products'
-import {
-  getAboutPageRoute,
-  getContactPageRoute,
-  getCurrentJobsPageRoute,
-  getHomePageRoute,
-  getProductDetailRoute,
-  getProductsPageRoute,
-  getSiteMapPageRoute,
-} from '../../../routes/routes'
 import { ChevronDownIcon } from '../../ui/AllSVG'
+import { getNavItems } from './navItems'
 
 const menuLinkClass = ({ isActive }) =>
   [
@@ -18,63 +9,8 @@ const menuLinkClass = ({ isActive }) =>
     isActive ? 'text-secondary before:opacity-100' : 'text-[#242424] hover:text-secondary hover:before:opacity-100',
   ].join(' ')
 
-export default function PrimaryMenu({ variant = 'desktop', onNavigate }) {
-  const items = [
-    { label: 'Home', to: getHomePageRoute() },
-    { label: 'About Us', to: getAboutPageRoute() },
-    {
-      label: 'Industrial Minerals',
-      to: getProductsPageRoute(),
-      children: products.map((item) => ({
-        label: item.label,
-        to: getProductDetailRoute(item.slug),
-      })),
-    },
-    { label: 'Current Jobs', to: getCurrentJobsPageRoute() },
-    { label: 'Contact Us', to: getContactPageRoute() },
-    { label: 'Site Map', to: getSiteMapPageRoute() },
-  ]
-
-  if (variant === 'mobile') {
-    return (
-      <ul className="flex flex-col">
-        {items.map((item) => (
-          <li key={item.label} className="border-b border-white/10">
-            <NavLink
-              to={item.to}
-              onClick={onNavigate}
-              className={({ isActive }) =>
-                `block px-5 py-3.5 text-[15px] font-semibold uppercase ${
-                  isActive ? 'bg-secondary text-white' : 'text-white'
-                }`
-              }
-            >
-              {item.label}
-            </NavLink>
-            {item.children ? (
-              <ul className="bg-primary/80">
-                {item.children.map((child) => (
-                  <li key={child.label}>
-                    <NavLink
-                      to={child.to}
-                      onClick={onNavigate}
-                      className={({ isActive }) =>
-                        `block px-8 py-2.5 text-sm font-medium capitalize ${
-                          isActive ? 'bg-secondary text-white' : 'text-white/90 hover:bg-secondary'
-                        }`
-                      }
-                    >
-                      {child.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+export default function PrimaryMenu() {
+  const items = getNavItems()
 
   return (
     <ul className="flex items-center">

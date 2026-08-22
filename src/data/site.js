@@ -5,6 +5,7 @@ export const site = {
   phoneHref: 'tel:+919414108545',
   email: 'mohitwadhawan95@gmail.com',
   emailHref: 'mailto:mohitwadhawan95@gmail.com',
+  location: 'Jodhpur, India',
   established: 2013,
   welcomeImage:
     'https://2.wlimg.com/product_images/bc-full/dir_160/4775286/colour-marble-and-stone-ships-1524132102-3791070.jpeg',
@@ -23,6 +24,22 @@ export const site = {
   welcome: [
     'Neelkanth Minerals & Traders is a trusted manufacturer, exporter and supplier of Industrial Minerals such as Bentonite Powder, Siliceous Earth Powder, Fullers Earth Powder, Colour Marble and Stone Shapes, Emery Stone, China Clay, Quartz Powder, Silica Powder, Diatomaceous Earth Powder, etc. We provide the best quality and pure Industrial Minerals in different specifications and forms.',
     'We have been offering high-grade Industrial Minerals to different sectors of the industry from construction to interior designing. Our products are available in bulk quantities easily and swiftly with the aid of huge warehousing units.',
+  ],
+  testimonials: [
+    {
+      title: 'Reliable Supply',
+      quote:
+        'The bentonite and silica powder we receive is consistent in grade and packing. Bulk orders reach us on schedule, which keeps our production line running without delays.',
+      author: 'Rajesh Mehta',
+      role: 'Procurement Head',
+    },
+    {
+      title: 'Quality Support',
+      quote:
+        'From first enquiry to dispatch, the team is clear and responsive. The minerals match the specifications we asked for, and the warehousing support makes repeat orders simple.',
+      author: 'Ananya Sharma',
+      role: 'Operations Manager',
+    },
   ],
   socials: [
     { name: 'facebook', href: '#' },

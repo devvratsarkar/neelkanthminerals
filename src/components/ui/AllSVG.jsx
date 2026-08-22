@@ -87,11 +87,21 @@ export function ChevronDownIcon({ className = 'size-3.5' }) {
   )
 }
 
-export function SiteLogoMark({ className = 'h-12 w-auto' }) {
+export function LocationIcon({ className = 'size-4' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+    </svg>
+  )
+}
+
+export function SiteLogoMark({ className = 'h-12 w-auto', variant = 'default' }) {
+  const leftFill = variant === 'onDark' ? '#ffffff' : '#092261'
+
   return (
     <svg viewBox="0 0 88 64" className={className} aria-hidden="true">
       <path fill="#ff5e14" d="M52 6 86 60H28Z" />
-      <path fill="#092261" d="M2 60 36 6l34 54Z" />
+      <path fill={leftFill} d="M2 60 36 6l34 54Z" />
     </svg>
   )
 }
