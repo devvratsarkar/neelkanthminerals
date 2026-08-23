@@ -29,3 +29,13 @@ export const inquiryValues = {
   product: null,
   message: '',
 }
+
+export function getProductOption(product) {
+  if (!product) return null
+
+  return {
+    value: product.slug,
+    label: product.label,
+  }
+}
+

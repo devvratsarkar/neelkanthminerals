@@ -5,7 +5,7 @@ import { GetCountries, GetState } from 'react-country-state-city'
 import { products } from '../../../data/products'
 import { site } from '../../../data/site'
 import { ChevronDownIcon, EnvelopeIcon, PhoneIcon } from '../../ui/AllSVG'
-import { inquirySchema, inquiryValues } from './inquirySchema'
+import { getProductOption, inquirySchema, inquiryValues } from './inquirySchema'
 
 const selectStyles = (hasError) => ({
   control: (base, state) => ({
@@ -16,9 +16,10 @@ const selectStyles = (hasError) => ({
     borderRadius: 0,
     borderColor: hasError ? '#ff5e14' : state.isFocused ? '#ff5e14' : 'rgba(9,34,97,0.10)',
     boxShadow: 'none',
-    backgroundColor: state.isFocused ? '#fff' : '#faf8f5',
+    backgroundColor: state.isDisabled ? '#f0eee9' : state.isFocused ? '#fff' : '#faf8f5',
     fontFamily: 'inherit',
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
+    opacity: state.isDisabled ? 0.75 : 1,
     '&:hover': {
       borderColor: hasError || state.isFocused ? '#ff5e14' : 'rgba(9,34,97,0.22)',
     },
@@ -108,11 +109,19 @@ function FieldError({ name }) {
 export default function InquiryForm({
   className = '',
   showHeader = true,
+  initialProduct,
   onSubmit,
 }) {
   const [countries, setCountries] = useState([])
   const [states, setStates] = useState([])
   const productOptions = useMemo(() => toOptions(products), [])
+  const initialValues = useMemo(
+    () => ({
+      ...inquiryValues,
+      product: getProductOption(initialProduct),
+    }),
+    [initialProduct],
+  )
 
   useEffect(() => {
     GetCountries()
@@ -211,7 +220,8 @@ export default function InquiryForm({
       ) : null}
 
       <Formik
-        initialValues={inquiryValues}
+        enableReinitialize
+        initialValues={initialValues}
         validationSchema={inquirySchema}
         onSubmit={handleSubmit}
       >
@@ -304,6 +314,7 @@ export default function InquiryForm({
                   components={{ DropdownIndicator }}
                   classNamePrefix="inquiry-select"
                   className="inquiry-select"
+                  isDisabled={Boolean(initialProduct)}
                 />
                 <FieldError name="product" />
               </div>
