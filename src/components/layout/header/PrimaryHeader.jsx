@@ -62,25 +62,25 @@ export default function PrimaryHeader() {
       </div>
 
       <div className="hidden bg-primary py-2.5 sm:block md:py-3.75 md:pb-2.5">
-        <div className="custom_container flex flex-col items-center justify-between gap-3 xl:flex-row">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 xl:justify-start">
+        <div className="custom_container flex items-center justify-between gap-3">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-5 gap-y-1 md:gap-x-8">
             <a
               href={site.phoneHref}
-              className="inline-flex items-center font-light text-white transition-colors hover:text-secondary"
+              className="inline-flex shrink-0 items-center font-light text-white transition-colors hover:text-secondary"
             >
               <PhoneIcon className="mr-2.5 size-4 text-secondary" />
               {site.phone}
             </a>
             <a
               href={site.emailHref}
-              className="inline-flex items-center font-light text-white transition-colors hover:text-secondary"
+              className="hidden min-w-0 items-center truncate font-light text-white transition-colors hover:text-secondary md:inline-flex"
             >
-              <EnvelopeIcon className="mr-2.5 size-4 text-secondary" />
-              {site.email}
+              <EnvelopeIcon className="mr-2.5 size-4 shrink-0 text-secondary" />
+              <span className="truncate">{site.email}</span>
             </a>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex shrink-0 items-center">
             {site.socials.map((social) => {
               const Icon = socialIcons[social.name]
               return (
@@ -98,41 +98,40 @@ export default function PrimaryHeader() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)]">
-        <div className="custom_container flex items-center justify-between gap-3 py-2.5 sm:gap-4 sm:py-3">
-          <Link to={getHomePageRoute()} className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <SiteLogoMark className="h-9 w-auto sm:h-12" />
+      <header className="sticky top-0 z-50 overflow-x-clip bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)]">
+        <div className="custom_container relative flex items-center justify-between gap-3 py-2.5 sm:gap-4 sm:py-3">
+          <Link to={getHomePageRoute()} className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-3">
+            <SiteLogoMark className="h-9 w-auto sm:h-11 xl:h-12" />
             <span className="leading-none">
-              <span className="block text-[18px] font-semibold text-primary sm:text-[26px]">
+              <span className="block text-[18px] font-semibold text-primary sm:text-[22px] xl:text-[26px]">
                 Neelkanth
               </span>
-              <span className="block text-[18px] font-semibold text-secondary sm:text-[26px]">
+              <span className="block text-[18px] font-semibold text-secondary sm:text-[22px] xl:text-[26px]">
                 Minerals
               </span>
             </span>
           </Link>
 
-          <div className="hidden min-w-0 items-center lg:flex">
-            <nav>
-              <PrimaryMenu />
-            </nav>
-            <div className="ml-4 flex items-center gap-1.5 xl:ml-6 xl:gap-2">
-              <QaSeal className="size-9 xl:size-11" />
-              <IsoSeal className="size-9 xl:size-11" />
-              <div className="leading-tight">
-                <p className="text-[10px] font-semibold tracking-wide text-primary uppercase xl:text-[11px]">
-                  Certified Company
-                </p>
-                <p className="text-base font-bold leading-none text-primary uppercase xl:text-lg">
-                  ISO 9001:2008
-                </p>
-              </div>
+          <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
+            <PrimaryMenu />
+          </nav>
+
+          <div className="relative z-10 hidden shrink-0 items-center gap-1.5 lg:flex xl:gap-2">
+            <QaSeal className="size-9 xl:size-11" />
+            <IsoSeal className="size-9 xl:size-11" />
+            <div className="leading-tight">
+              <p className="text-[10px] font-semibold tracking-wide text-primary uppercase xl:text-[11px]">
+                Certified Company
+              </p>
+              <p className="text-base font-bold leading-none text-primary uppercase xl:text-lg">
+                ISO 9001:2008
+              </p>
             </div>
           </div>
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center text-primary transition-colors duration-300 hover:text-secondary sm:size-11 lg:hidden"
+            className="relative z-10 inline-flex size-10 items-center justify-center text-primary transition-colors duration-300 hover:text-secondary sm:size-11 lg:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-offcanvas"
