@@ -19,7 +19,7 @@ export default function SiteMapPage() {
   ]
 
   return (
-    <section className="custom_container py-16">
+    <section className="custom_container py-8 sm:py-12 lg:py-16">
       <h1 className="font-display text-4xl font-semibold tracking-tight text-primary">
         Site Map
       </h1>
@@ -27,7 +27,7 @@ export default function SiteMapPage() {
         Find your way around the Neelkanth Minerals website.
       </p>
 
-      <div className="mt-10 grid gap-10 md:grid-cols-2">
+      <div className="mt-6 grid gap-6 sm:mt-8 md:mt-10 md:grid-cols-2 md:gap-10">
         <div>
           <h2 className="text-xl font-semibold text-primary">General Links</h2>
           <ul className="mt-4 space-y-2">
