@@ -53,6 +53,7 @@ export const site = {
       role: 'Operations Manager',
     },
   ],
+  jobs: [],
   socials: [
     { name: 'facebook', href: '#' },
     { name: 'twitter', href: '#' },
