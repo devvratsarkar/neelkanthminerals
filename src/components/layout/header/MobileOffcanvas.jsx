@@ -10,9 +10,9 @@ import {
   FacebookIcon,
   LinkedinIcon,
   PhoneIcon,
-  SiteLogoMark,
   TwitterIcon,
 } from '../../ui/AllSVG'
+import SiteLogo from '../../ui/SiteLogo'
 import { getNavItems } from './navItems'
 
 const socialIcons = {
@@ -119,12 +119,8 @@ export default function MobileOffcanvas({ open, onClose }) {
         <div className="h-1 bg-secondary" />
 
         <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
-          <Link to={getHomePageRoute()} onClick={onClose} className="flex min-w-0 items-center gap-2.5">
-            <SiteLogoMark variant="onDark" className="h-9 w-auto" />
-            <span id={titleId} className="leading-none">
-              <span className="block text-lg font-semibold text-white">Neelkanth</span>
-              <span className="block text-lg font-semibold text-secondary">Minerals</span>
-            </span>
+          <Link to={getHomePageRoute()} onClick={onClose} className="min-w-0">
+            <SiteLogo id={titleId} variant="onDark" className="h-8 w-auto max-w-46" />
           </Link>
 
           <button

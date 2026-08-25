@@ -16,9 +16,9 @@ import {
   LinkedinIcon,
   LocationIcon,
   PhoneIcon,
-  SiteLogoMark,
   TwitterIcon,
 } from '../../ui/AllSVG'
+import SiteLogo from '../../ui/SiteLogo'
 
 const socialIcons = {
   facebook: FacebookIcon,
@@ -63,12 +63,8 @@ export default function PrimaryFooter() {
       <div className="custom_container py-14 lg:py-16">
         <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.35fr_0.85fr_1.1fr_1.05fr] xl:gap-16">
           <div>
-            <Link to={getHomePageRoute()} className="inline-flex items-center gap-3">
-              <SiteLogoMark variant="onDark" className="h-11 w-auto" />
-              <span className="leading-none">
-                <span className="block text-[22px] font-semibold text-white">Neelkanth</span>
-                <span className="block text-[22px] font-semibold text-secondary">Minerals</span>
-              </span>
+            <Link to={getHomePageRoute()} className="inline-block">
+              <SiteLogo variant="onDark" className="h-12 w-auto sm:h-14" />
             </Link>
 
             <p className="mt-6 max-w-sm text-[15px] leading-7 font-light text-white/65">

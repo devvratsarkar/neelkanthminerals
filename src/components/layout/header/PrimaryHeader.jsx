@@ -10,9 +10,9 @@ import {
   MenuIcon,
   PhoneIcon,
   QaSeal,
-  SiteLogoMark,
   TwitterIcon,
 } from '../../ui/AllSVG'
+import SiteLogo from '../../ui/SiteLogo'
 import MobileOffcanvas from './MobileOffcanvas'
 import PrimaryMenu from './PrimaryMenu'
 
@@ -100,16 +100,8 @@ export default function PrimaryHeader() {
 
       <header className="sticky top-0 z-50 overflow-x-clip bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.1)]">
         <div className="custom_container relative flex items-center justify-between gap-3 py-2.5 sm:gap-4 sm:py-3">
-          <Link to={getHomePageRoute()} className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-3">
-            <SiteLogoMark className="h-9 w-auto sm:h-11 xl:h-12" />
-            <span className="leading-none">
-              <span className="block text-[18px] font-semibold text-primary sm:text-[22px] xl:text-[26px]">
-                Neelkanth
-              </span>
-              <span className="block text-[18px] font-semibold text-secondary sm:text-[22px] xl:text-[26px]">
-                Minerals
-              </span>
-            </span>
+          <Link to={getHomePageRoute()} className="relative z-10 shrink-0">
+            <SiteLogo className="h-9 w-auto sm:h-11 xl:h-12" />
           </Link>
 
           <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
