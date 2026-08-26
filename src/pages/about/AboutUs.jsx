@@ -1,24 +1,13 @@
 import { Link } from 'react-router-dom'
 import InquiryForm from '../../components/common/forms/InquiryForm'
-import { CheckIcon } from '../../components/ui/AllSVG'
 import { products } from '../../data/products'
 import { site } from '../../data/site'
-import { getContactPageRoute, getHomePageRoute, getProductDetailRoute } from '../../routes/routes'
-
-const years = new Date().getFullYear() - site.established
+import { getHomePageRoute, getProductDetailRoute } from '../../routes/routes'
 
 const profileFacts = [
-  { label: 'Managing Director', value: site.director },
+  { label: 'Name of Managing Director', value: site.director },
   { label: 'Year of Establishment', value: String(site.established) },
   { label: 'Nature of Business', value: site.natureOfBusiness },
-  { label: 'Origin', value: 'Jodhpur, Rajasthan' },
-  { label: 'Certification', value: 'ISO 9001:2008' },
-]
-
-const highlights = [
-  { label: 'Years', value: `${years}+` },
-  { label: 'Minerals', value: String(products.length).padStart(2, '0') },
-  { label: 'Origin', value: 'Jodhpur' },
 ]
 
 export default function AboutUsPage() {
@@ -43,8 +32,8 @@ export default function AboutUsPage() {
             </p>
           </div>
           <h1 className="text-4xl leading-[1.1] font-semibold text-white sm:text-5xl">
-            Company
-            <span className="mt-1 block font-light text-secondary">Profile</span>
+            About
+            <span className="mt-1 block font-light text-secondary">Us</span>
           </h1>
         </div>
       </section>
@@ -71,12 +60,12 @@ export default function AboutUsPage() {
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-10 bg-secondary" />
               <p className="text-[11px] font-semibold tracking-[0.32em] text-secondary uppercase">
-                Who we are
+                About Neelkanth Minerals & Traders
               </p>
             </div>
             <h2 className="text-4xl leading-[1.1] font-semibold text-primary sm:text-5xl">
               Neelkanth
-              <span className="mt-1 block font-light text-secondary">Minerals</span>
+              <span className="mt-1 block font-light text-secondary">Minerals & Traders</span>
             </h2>
             <div className="mt-7 space-y-5 text-[16px] leading-8 text-black/65">
               {site.welcome.map((paragraph) => (
@@ -108,7 +97,7 @@ export default function AboutUsPage() {
               {profileFacts.map((fact) => (
                 <div
                   key={fact.label}
-                  className="grid gap-1 py-3 sm:grid-cols-[180px_1fr] sm:items-baseline sm:gap-5"
+                  className="grid gap-1 py-3 sm:grid-cols-[220px_1fr] sm:items-baseline sm:gap-5"
                 >
                   <dt className="text-[11px] font-semibold tracking-[0.18em] text-black/40 uppercase">
                     {fact.label}
@@ -117,17 +106,6 @@ export default function AboutUsPage() {
                 </div>
               ))}
             </dl>
-          </div>
-
-          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-primary/10 pt-6">
-            {highlights.map((item) => (
-              <div key={item.label}>
-                <p className="text-3xl font-semibold text-primary sm:text-4xl">{item.value}</p>
-                <p className="mt-1 text-[11px] font-semibold tracking-[0.2em] text-secondary uppercase">
-                  {item.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -154,52 +132,6 @@ export default function AboutUsPage() {
             <h2 className="text-2xl font-semibold text-primary sm:text-3xl">Our Team</h2>
             <p className="mt-3 text-[16px] leading-7 text-black/65">{site.about.team}</p>
           </article>
-        </div>
-      </section>
-
-      <section className="bg-white py-10 lg:py-12">
-        <div className="custom_container grid items-start gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
-          <div>
-            <div className="mb-3 flex items-center gap-4">
-              <span className="h-px w-10 bg-secondary" />
-              <p className="text-[11px] font-semibold tracking-[0.32em] text-secondary uppercase">
-                Why
-              </p>
-            </div>
-            <h2 className="text-3xl font-semibold tracking-wide text-primary uppercase sm:text-4xl">
-              Choose Us
-            </h2>
-            <p className="mt-4 max-w-md text-[16px] leading-7 text-black/65">{site.whyChoose.intro}</p>
-          </div>
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {site.whyChoose.points.map((point) => (
-              <li key={point} className="flex items-start gap-3 border border-primary/10 px-4 py-3.5">
-                <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-secondary text-white">
-                  <CheckIcon className="size-3" />
-                </span>
-                <span className="text-[15px] leading-6 text-black/75">{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="bg-primary">
-        <div className="custom_container flex flex-col items-start justify-between gap-6 py-10 lg:flex-row lg:items-center lg:py-12">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-wide text-white uppercase sm:text-3xl">
-              {years}+ years of industrial mineral supply
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-7 font-light text-white/70">
-              Bulk orders of consistent grades, with warehousing support from {site.location}.
-            </p>
-          </div>
-          <Link
-            to={getContactPageRoute()}
-            className="inline-flex items-center bg-secondary px-8 py-3.5 text-[11px] font-semibold tracking-[0.2em] text-white uppercase transition-colors duration-300 hover:bg-white hover:text-primary"
-          >
-            Contact Us Today
-          </Link>
         </div>
       </section>
 

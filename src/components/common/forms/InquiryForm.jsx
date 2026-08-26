@@ -5,6 +5,7 @@ import { GetCountries, GetState } from 'react-country-state-city'
 import { products } from '../../../data/products'
 import { site } from '../../../data/site'
 import { ChevronDownIcon, EnvelopeIcon, PhoneIcon } from '../../ui/AllSVG'
+import { sendInquiryEmail } from '../../../lib/sendInquiryEmail'
 import { getProductOption, inquirySchema, inquiryValues } from './inquirySchema'
 
 const selectStyles = (hasError) => ({
@@ -153,10 +154,24 @@ export default function InquiryForm({
       message: values.message.trim(),
     }
 
-    await onSubmit?.(payload)
-    helpers.resetForm()
-    setStates([])
-    helpers.setStatus('Thank you. We will get back to you shortly.')
+    try {
+      await sendInquiryEmail(payload)
+      await onSubmit?.(payload)
+      helpers.resetForm()
+      setStates([])
+      helpers.setStatus({
+        ok: true,
+        text: 'Thank you. We will get back to you shortly.',
+      })
+    } catch (error) {
+      helpers.setStatus({
+        ok: false,
+        text:
+          error?.text ||
+          error?.message ||
+          'Unable to send your inquiry. Please try again or call us.',
+      })
+    }
   }
 
   return (
@@ -328,7 +343,15 @@ export default function InquiryForm({
                 <FieldError name="message" />
               </div>
 
-              {status ? <p className="text-sm text-primary sm:col-span-2">{status}</p> : null}
+              {status?.text ? (
+                <p
+                  className={`text-sm sm:col-span-2 ${
+                    status.ok ? 'text-primary' : 'text-secondary'
+                  }`}
+                >
+                  {status.text}
+                </p>
+              ) : null}
 
               <div className="sm:col-span-2">
                 <button
