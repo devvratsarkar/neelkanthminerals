@@ -9,7 +9,7 @@ export default function SiteLogo({
     <img
       id={id}
       src={src}
-      alt="Neelkanth Minerals"
+      alt="Neelkanth Minerals & Traders"
       className={className}
     />
   )
